@@ -16,20 +16,3 @@ def rtime(timestamp : Int64) : String
 
   "#{v} #{unit}#{v == 1 ? "" : "s"} ago"
 end
-
-# Only run CLI code if this is the main file
-if PROGRAM_NAME.includes?("rtime.cr")
-  if ARGV.empty?
-    STDERR.puts "Usage: relative-time <timestamp> [<timestamp> ...]"
-    exit 1
-  end
-
-  ARGV.each do |arg|
-    begin
-      ts = arg.to_i64
-      puts rtime(ts)
-    rescue
-      STDERR.puts "Invalid timestamp: #{arg}"
-    end
-  end
-end

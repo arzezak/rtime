@@ -9,7 +9,24 @@ A simple command-line tool written in Crystal that converts Unix timestamps to h
 ## Building
 
 ```bash
-crystal build --release rtime.cr -o rtime
+make build
+```
+
+## Installing
+
+Symlinks the built binary into `~/.local/bin`, so rebuilds are picked up automatically:
+
+```bash
+make install
+```
+
+Override the location with `PREFIX` or `BINDIR` (e.g. `make install PREFIX=/usr/local`).
+Remove the link with `make uninstall`.
+
+## Testing
+
+```bash
+make test
 ```
 
 ## Usage
